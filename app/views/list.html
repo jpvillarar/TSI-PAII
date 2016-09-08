@@ -1,0 +1,55 @@
+<input type="text" ng-model="buscar " class="form-control">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Sexo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class = "slide" ng-repeat= "persona in personas | limitTo:10: aPartir | filter:{apellido:buscar} | orderBy:'nombre' track by $index">
+      <td>
+        {{persona.id}}        
+      </td>
+      <td>
+        {{persona.nombre}}
+      </td>
+      <td>
+        {{persona.apellido}}
+      </td>
+      <td>
+        {{persona.email}}
+      </td>
+      <td>
+        {{persona.gender}}
+      </td>
+      <td>
+       <img ng-src = "{{persona.img}}">
+      </td>
+
+     </tr>
+  </tbody>
+</table>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a ng-click = "aPartir = 1" href="#">1</a></li>
+    <li><a ng-click = "aPartir = 11" href="#">2</a></li>
+    <li><a ng-click = "aPartir = 22" href="#">3</a></li>
+    <li><a ng-click = "aPartir = 43" href="#">4</a></li>
+    <li><a ng-click = "aPartir = 54"href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
